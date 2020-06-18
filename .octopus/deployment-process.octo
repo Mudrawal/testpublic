@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-5"
     OwnerId = "Projects-5"
     IsFrozen = false
-    Version = 1
+    Version = 2
     SpaceId = "Spaces-1"
     Steps {
         run_a_script {
@@ -60,6 +60,22 @@ process {
                                 HasValue = true
                             }
                         }
+                        octopus.action.template.id {
+                            Key = "Octopus.Action.Template.Id"
+                            Value {
+                                Value = "ActionTemplates-1"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.template.version {
+                            Key = "Octopus.Action.Template.Version"
+                            Value {
+                                Value = "0"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
                     }
                 }
             }
@@ -67,5 +83,5 @@ process {
             }
         }
     }
-    RelatedDocumentIds = []
+    RelatedDocumentIds = ["ActionTemplates-1"]
 }
