@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-5"
     OwnerId = "Projects-5"
     IsFrozen = false
-    Version = 2
+    Version = 3
     SpaceId = "Spaces-1"
     Steps {
         run_a_script {
@@ -15,6 +15,83 @@ process {
                 run_a_script {
                     Id = "56543709-56d0-4bf6-acfe-209e5c1f3aca"
                     Name = "Run a Script"
+                    ActionType = "Octopus.Script"
+                    Container {
+                    }
+                    IsDisabled = false
+                    IsRequired = false
+                    Environments = []
+                    ExcludedEnvironments = []
+                    Channels = []
+                    TenantTags = []
+                    Packages {
+                    }
+                    Condition = "Success"
+                    Properties {
+                        octopus.action.runonserver {
+                            Key = "Octopus.Action.RunOnServer"
+                            Value {
+                                Value = "true"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.script.scriptsource {
+                            Key = "Octopus.Action.Script.ScriptSource"
+                            Value {
+                                Value = "Inline"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.script.syntax {
+                            Key = "Octopus.Action.Script.Syntax"
+                            Value {
+                                Value = "PowerShell"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.script.scriptbody {
+                            Key = "Octopus.Action.Script.ScriptBody"
+                            Value {
+                                Value = ";"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.template.id {
+                            Key = "Octopus.Action.Template.Id"
+                            Value {
+                                Value = "ActionTemplates-1"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.template.version {
+                            Key = "Octopus.Action.Template.Version"
+                            Value {
+                                Value = "0"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                    }
+                }
+            }
+            Properties {
+            }
+        }
+        run_a_script_-_clone_(1) {
+            Id = "e106cfae-8caf-4936-aeea-21a32c65a258"
+            Name = "Run a Script - clone (1)"
+            Condition = "Success"
+            StartTrigger = "StartAfterPrevious"
+            PackageRequirement = "LetOctopusDecide"
+            Actions {
+                run_a_script_-_clone_(1) {
+                    Id = "064f657e-34dc-4a98-bf7b-0e3be467a210"
+                    Name = "Run a Script - clone (1)"
                     ActionType = "Octopus.Script"
                     Container {
                     }
